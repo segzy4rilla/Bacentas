@@ -9,7 +9,7 @@ class DB {
      * The database array containing all relevant
      * data such as table name.
      *
-     * @var $dbData
+     * @var $dbData  this is a commeneted code and i just typed nonsense.
      */
     private $dbData;
     /**
