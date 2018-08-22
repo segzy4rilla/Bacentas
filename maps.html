@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bacenta Map</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+        /* Always set the map height explicitly to define the size of the div
+         * element that contains the map. */
+        #map {
+            height: 100%;
+        }
+
+        /* Optional: Makes the sample page fill the window. */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+    <script>
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+        var map;
+        var infowindow;
+
+        function initMap() {
+            var camden_town = {lat: 51.5390261, lng: -0.1425516};
+            var kentish_town = {lat: 51.5472431, lng: -0.1419718};
+            var finsbury_park = {lat: 51.563296, lng: -0.107435};
+            var wood_green = {lat: 51.5964823, lng: -0.1089432};
+            var edmonton  = {lat: 51.613589, lng: -0.062553};
+            var edmonton2  = {lat: 51.61332237, lng: -0.06290163};
+            var TottenhamHale = {lat: 51.592578, lng: -0.061062};
+            var TottenhamHale2= {lat: 51.59281085, lng: -0.05950163};
+            var walthamstow = {lat: 51.5901769, lng: -0.0173437};
+            var Barking = {lat: 51.536563, lng: 0.075766};
+            var Barking2 = {lat: 51.52118466, lng: 0.06340638};
+            var Romford = {lat: 51.577076, lng: 0.178319};
+            var Romford2 = {lat:51.57361839, lng: 0.18761437};
+            var Plaistow = {lat: 51.527552, lng: 0.012627};
+            var HaroldWood = {lat: 51.590448, lng:  0.235288};
+            var Dagenham = {lat: 51.53889, lng: 0.14743};
+            var Stratford = {lat: 51.5501741, lng: -0.003371};
+            var AnglianRuskin = {lat: 51.5187535, lng: -0.1056558};
+
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 14,
+                center: camden_town
+            });
+
+            var HaggaiContent = '<div align="left" id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<p><img src="HaggaiA.jpg" height="60" width="60" align="center"></p>' +
+                '<h1 id="firstHeading" class="firstHeading">Camden Town Bacenta - Haggai Afriyie</h1>' +
+                '<div id="bodyContent">' +
+                '<p><b>Name Of Bacenta Leader : Haggai Afriyie <br> Name Of Centre Leader : Haggai Afriyie <br>  Number Of Regular Members : 8 ' +
+                '<br> Number Of Irregular Members : 3 <br> Total Number Of Members : 11 <br> Last Weeks Attendance : 5 </b></p>' +
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Haggai Afriyie">' +
+                'Bacenta Data</a> ' +
+                '(last visited August 19, 2018).</p>' +
+                '</div>' +
+                '</div>';
+
+            var HaggaiInfo = new google.maps.InfoWindow({
+                content: HaggaiContent
+            });
+
+            var HaggaiMarker = new google.maps.Marker({
+                position: camden_town,
+                map: map,
+                title: 'Camden Town (Haggai)'
+            });
+            HaggaiMarker.addListener('mouseover', function () {
+                HaggaiInfo.open(map, HaggaiMarker);
+            });
+            HaggaiMarker.addListener('mouseout', function () {
+                HaggaiInfo.close(map, HaggaiMarker);
+            });
+
+
+
+            var MichaelContent = '<div align="left" id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<p><img src="MichaelO.jpg" height="60" width="70" align="center"></p>' +
+                '<h1 id="firstHeading" class="firstHeading">Kentish Town Bacenta - Michael Olatunji</h1>' +
+                '<div id="bodyContent">' +
+                '<p><b>Name Of Bacenta Leader : Michael Olatunji <br> Name Of Centre Leader : Haggai Afriyie <br>  Number Of Regular Members : 2 ' +
+                '<br> Number Of Irregular Members : 3 <br> Total Number Of Members : 5 <br> Last Weeks Attendance : 5 </b></p>' +
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Michael Olatunji">' +
+                'Bacenta Data</a> ' +
+                '(last visited August 19, 2018).</p>' +
+                '</div>' +
+                '</div>';
+
+            var MichaelInfo = new google.maps.InfoWindow({
+                content: MichaelContent
+            });
+
+            var MichaelMarker = new google.maps.Marker({
+                position: kentish_town,
+                map: map,
+                title: 'Kentish Town (Michael O)'
+            });
+            MichaelMarker.addListener('mouseover', function () {
+                MichaelInfo.open(map, MichaelMarker);
+            });
+
+            MichaelMarker.addListener('mouseout', function () {
+                MichaelInfo.close(map, MichaelMarker);
+            });
+
+            var EdenContent = '<div align="left" id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<p><img src="EdenL.jpg" height="60" width="70" align="center"></p>' +
+                '<h1 id="firstHeading" class="firstHeading">Finsbury Park Bacenta - Eden Lawer</h1>' +
+                '<div id="bodyContent">' +
+                '<p><b>Name Of Bacenta Leader : Eden Lawer <br> Name Of Centre Leader : Haggai Afriyie <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>' +
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Eden Lawer">' +
+                'Bacenta Data</a> ' +
+                '(last visited August 19, 2018).</p>' +
+                '</div>' +
+                '</div>';
+
+            var EdenInfo = new google.maps.InfoWindow({
+                content: EdenContent
+            });
+
+            var EdenMarker = new google.maps.Marker({
+                position: finsbury_park,
+                map: map,
+                title: 'Finsbury Park (Eden L)'
+            });
+            EdenMarker.addListener('mouseover', function () {
+                EdenInfo.open(map, EdenMarker);
+            });
+
+            EdenMarker.addListener('mouseout', function () {
+                EdenInfo.close(map, EdenMarker);
+            });
+
+            EdenMarker.addListener('click', function () {
+                window.open("http://localhost/Bacenta/Login.php?width=Eden Lawer");
+            });
+
+            var NoreenContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="EdenL.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Wood Green Bacenta - Noreen Adjei</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Eden Lawer <br> Name Of Centre Leader : Haggai Afriyie <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Noreen Adjei">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var NoreenInfo = new google.maps.InfoWindow({
+                content: NoreenContent
+            });
+
+            var NoreenMarker = new google.maps.Marker({
+                position: wood_green,
+                map: map,
+                title: 'Wood Green (Noreen A)'
+            });
+            NoreenMarker.addListener('mouseover', function() {
+                NoreenInfo.open(map, NoreenMarker);
+            });
+
+            NoreenMarker.addListener('mouseout', function() {
+                NoreenInfo.close(map, NoreenMarker);
+            });
+
+
+
+            var GabbyContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="GabbyY.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Edmonton Bacenta - Gabrielle Nkansa-Yeboah</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Gabrielle Nkansa-Yeboah <br> Name Of Centre Leader : Haggai Afriyie <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Gabrielle Nkansa-Yeboah">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var GabbyInfo = new google.maps.InfoWindow({
+                content: GabbyContent
+            });
+
+
+            var GabbyMarker = new google.maps.Marker({
+                position: edmonton,
+                map: map,
+                title: 'Edmonton (Gabby Y)'
+            });
+            GabbyMarker.addListener('mouseover', function() {
+                GabbyInfo.open(map, GabbyMarker);
+            });
+
+            GabbyMarker.addListener('mouseout', function() {
+                GabbyInfo.close(map, GabbyMarker);
+            });
+
+
+
+
+            var SamanthaContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="SamanthaB.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Tottenham Hale Bacenta - Samantha Badza</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Samantha Badza <br> Name Of Centre Leader : Haggai Afriyie <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Samantha Badza">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var SamanthaInfo = new google.maps.InfoWindow({
+                content: SamanthaContent
+            });
+
+
+            var SamanthaMarker = new google.maps.Marker({
+                position:TottenhamHale,
+                map: map,
+                title: 'TottenhamHale (Samantha B)'
+            });
+            SamanthaMarker.addListener('mouseover', function() {
+                SamanthaInfo.open(map, SamanthaMarker);
+            });
+
+            SamanthaMarker.addListener('mouseout', function() {
+                SamanthaInfo.close(map, SamanthaMarker);
+            });
+       
+       
+            var ShannonContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="SamanthsB.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Edmonton Bacenta - Shannon Serwaa-Osei</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Shannon Serwaa-Osei <br> Name Of Centre Leader : Haggai Afriyie <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Shannon Serwaa-Osei">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var ShannonInfo = new google.maps.InfoWindow({
+                content: ShannonContent
+            });
+
+
+            var ShannonMarker = new google.maps.Marker({
+                position: edmonton2,
+                map: map,
+                title: 'Edmonton (Shannon Serwaa-Osei)'
+            });
+            ShannonMarker.addListener('mouseover', function() {
+                ShannonInfo.open(map, ShannonMarker);
+            });
+
+            ShannonMarker.addListener('mouseout', function() {
+                ShannonInfo.close(map, ShannonMarker);
+            });
+
+
+            var PrincessContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="PrincessBradley.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Walthamstow Bacenta - Princess Bradley</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Princess Bradley <br> Name Of Centre Leader : Haggai Afriyie <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Princess Bradley">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var PrincessBInfo = new google.maps.InfoWindow({
+                content: PrincessContent
+            });
+
+
+            var PrincessBMarker = new google.maps.Marker({
+                position: walthamstow,
+                map: map,
+                title: 'Walthamstow (Princess Bradley)'
+            });
+            PrincessBMarker.addListener('mouseover', function() {
+                PrincessBInfo.open(map, PrincessBMarker);
+            });
+
+            PrincessBMarker.addListener('mouseout', function() {
+                PrincessBInfo.close(map, PrincessBMarker);
+            });
+
+
+
+            var MichaelContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="PrincessBradley.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Tottenham Hale Bacenta - Michael Adomako</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Michael Adomako <br> Name Of Centre Leader : Haggai Afriyie <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=MichaelAdomako">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var MichaelAInfo = new google.maps.InfoWindow({
+                content: MichaelContent
+            });
+
+
+            var MichaelAMarker = new google.maps.Marker({
+                position:TottenhamHale2 ,
+                map: map,
+                title: 'Tottenham Hale (Michael Adomako)'
+            });
+            MichaelAMarker.addListener('mouseover', function() {
+                MichaelAInfo.open(map, MichaelAMarker);
+            });
+            MichaelAMarker.addListener('mouseout', function() {
+                MichaelAInfo.close(map, MichaelAMarker);
+            });
+
+
+
+            var BunmiContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="BunmiE.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Barking Bacenta - Bunmi Enirayetan</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Bunmi Enirayetan <br> Name Of Centre Leader : Bunmi Enirayetan <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Bunmi Enirayetan">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var BunmiInfo = new google.maps.InfoWindow({
+                content: BunmiContent
+            });
+
+
+            var BunmiMarker = new google.maps.Marker({
+                position:Barking ,
+                map: map,
+                title: 'Barking (Bunmi Enirayetan)'
+            });
+            BunmiMarker.addListener('mouseover', function() {
+                BunmiInfo.open(map, BunmiMarker);
+            });
+            BunmiMarker.addListener('mouseout', function() {
+                BunmiInfo.close(map, BunmiMarker);
+            });
+            
+
+          var UcheContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="BunmiE.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Barking Bacenta - Uche Eneh</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Uche Eneh <br> Name Of Centre Leader : Bunmi Enirayetan  <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Uche Eneh">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var UcheInfo = new google.maps.InfoWindow({
+                content: UcheContent
+            });
+
+
+            var UcheMarker = new google.maps.Marker({
+                position:Barking2,
+                map: map,
+                title: 'Barking (Uche Eneh)'
+            });
+            UcheMarker.addListener('mouseover', function() {
+                UcheInfo.open(map, UcheMarker);
+            });
+
+            UcheMarker.addListener('mouseout', function() {
+                UcheInfo.close(map, UcheMarker);
+            });
+
+
+            var PhylisContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="PhylisP.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Romford Bacenta - Phylis Paca</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Phylis Paca <br> Name Of Centre Leader : Bunmi Enirayetan  <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Phylis Paca">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var PhylisInfo = new google.maps.InfoWindow({
+                content: PhylisContent
+            });
+
+
+            var PhylisMarker = new google.maps.Marker({
+                position:Romford,
+                map: map,
+                title: 'Barking (Phylis Paca)'
+            });
+            PhylisMarker.addListener('mouseover', function() {
+                PhylisInfo.open(map, PhylisMarker);
+            });
+
+            PhylisMarker.addListener('mouseout', function() {
+                PhylisInfo.close(map, PhylisMarker);
+            });
+
+
+            var GeorgetteContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="PhylisP.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Romford Bacenta - Georgette Wallace</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Georgette Wallace <br> Name Of Centre Leader : Bunmi Enirayetan  <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Georgette Wallace">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var GeorgetteInfo = new google.maps.InfoWindow({
+                content: GeorgetteContent
+            });
+
+
+            var GeorgetteMarker = new google.maps.Marker({
+                position:Plaistow,
+                map: map,
+                title: 'Plaistow (Georgette Wallace)'
+            });
+            GeorgetteMarker.addListener('mouseover', function() {
+                GeorgetteInfo.open(map, GeorgetteMarker);
+            });
+            GeorgetteMarker.addListener('mouseout', function() {
+                GeorgetteInfo.close(map, GeorgetteMarker);
+            });
+
+
+
+            var SelormContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="SelormG.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Romford (HaroldWood) Bacenta - Selorm Gati</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Selorm Gati <br> Name Of Centre Leader : Bunmi Enirayetan  <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Selorm Gati">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var SelormInfo = new google.maps.InfoWindow({
+                content: SelormContent
+            });
+
+
+            var SelormMarker = new google.maps.Marker({
+                position:HaroldWood,
+                map: map,
+                title: 'HaroldWood(Selorm Gati)'
+            });
+            SelormMarker.addListener('mouseover', function() {
+                SelormInfo.open(map, SelormMarker);
+            });
+
+            SelormMarker.addListener('mouseout', function() {
+                SelormInfo.close(map, SelormMarker);
+            });
+
+
+            var AishaContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="Aisha.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Dagenham Bacenta - Aisha Espirit</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Aisha Espirit <br> Name Of Centre Leader : Bunmi Enirayetan  <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Aisha Espirit">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var AishaInfo = new google.maps.InfoWindow({
+                content: AishaContent
+            });
+
+
+            var AishaMarker = new google.maps.Marker({
+                position:Dagenham,
+                map: map,
+                title: 'Dagenham (Aisha Espirit)'
+            });
+            AishaMarker.addListener('mouseover', function() {
+                AishaInfo.open(map, AishaMarker);
+            });
+
+            AishaMarker.addListener('mouseout', function() {
+                AishaInfo.close(map, AishaMarker);
+            });
+
+            var LucilleContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="Lucile.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Stratford Bacenta - Lucille Commey</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Lucille Commey<br> Name Of Centre Leader : Bunmi Enirayetan  <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Lucille Commey">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var LucilleInfo = new google.maps.InfoWindow({
+                content: LucilleContent
+            });
+
+
+            var LucilleMarker = new google.maps.Marker({
+                position:Stratford,
+                map: map,
+                title: 'Stratford (Lucille Commey)'
+            });
+            LucilleMarker.addListener('mouseover', function() {
+                LucilleInfo.open(map, LucilleMarker);
+            });
+
+            LucilleMarker.addListener('mouseout', function() {
+                LucilleInfo.close(map, LucilleMarker);
+            });
+
+
+            var PhilipContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="PhilipO.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Anglian Ruskin Bacenta - Phillip Owusu</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Phillip Owusu <br> Name Of Centre Leader : Bunmi Enirayetan  <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Phillip Owusu">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var PhillipInfo = new google.maps.InfoWindow({
+                content: PhilipContent
+            });
+
+
+            var PhillipMarker = new google.maps.Marker({
+                position:AnglianRuskin,
+                map: map,
+                title: 'Anglian Ruskin (Phillip Owusu)'
+            });
+            PhillipMarker.addListener('mouseover', function() {
+                PhillipInfo.open(map, PhillipMarker);
+            });
+
+            PhillipMarker.addListener('mouseout', function() {
+                PhillipInfo.close(map, PhillipMarker);
+            });
+
+
+            var AmandaContent = '<div align="left" id="content">'+
+                '<div id="siteNotice">'+
+                '</div>'+
+                '<p><img src="AmandaA.jpg" height="60" width="70" align="center"></p>'+
+                '<h1 id="firstHeading" class="firstHeading">Romford Bacenta - Amanda Agwunobi</h1>'+
+                '<div id="bodyContent">'+
+                '<p><b>Name Of Bacenta Leader : Amanda Agwunobi <br> Name Of Centre Leader : Bunmi Enirayetan  <br>  Number Of Regular Members : 5 ' +
+                '<br> Number Of Irregular Members : 4 <br> Total Number Of Members : 9 <br> Last Weeks Attendance : 5 </b></p>'+
+                '<p>View Bacenta Data: <a href="http://c8fbeaed.ngrok.io/Bacenta/Login.php?width=Amanda Agwunobi">'+
+                'Bacenta Data</a> '+
+                '(last visited August 19, 2018).</p>'+
+                '</div>'+
+                '</div>';
+
+            var AmandaInfo = new google.maps.InfoWindow({
+                content: AmandaContent
+            });
+
+
+            var AmandaMarker = new google.maps.Marker({
+                position:Romford2,
+                map: map,
+                title: 'Romford (Amanda Agwunobi)'
+            });
+            AmandaMarker.addListener('mouseover', function() {
+                AmandaInfo.open(map, AmandaMarker);
+            });
+
+
+            AmandaMarker.addListener('mouseout', function() {
+                AmandaInfo.close(map, AmandaMarker);
+            });
+
+
+
+        }
+
+
+
+
+    </script>
+</head>
+<body>
+<div id="map"></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWWNtBGN0cuNQQCy6L-aOIpQDYHEdecxA&libraries=places&callback=initMap"
+        async defer></script>
+</body>
+</html>
